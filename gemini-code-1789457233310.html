@@ -1,0 +1,1337 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài Kiểm Tra Tiếng Anh Tương Tác - Ms Lê Hằng English</title>
+  <!-- Google Fonts: Poster Style (Fredoka & Paytone One) -->
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Paytone+One&family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-pink: #ff6b8b;
+      --primary-pink-dark: #d84315;
+      --pastel-pink-bg: #fff0f5;
+      --pastel-purple-hl: #a855f7;
+      --accent-green: #00d26a;
+      --accent-red: #ff4757;
+      --accent-yellow: #fdcb6e;
+      --bg-gradient-1: #ffb6c1;
+      --bg-gradient-2: #ff80bf;
+      --bg-gradient-3: #a855f7;
+      --bg-gradient-4: #fda4af;
+      --card-bg: rgba(255, 255, 255, 0.97);
+      --card-shadow: 0 12px 28px rgba(0,0,0,0.12);
+      --btn-shadow: 0 6px 0px rgba(0,0,0,0.18);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    ::selection {
+      background-color: var(--pastel-purple-hl) !important;
+      color: #ffffff !important;
+    }
+
+    body {
+      font-family: 'Fredoka', 'Quicksand', sans-serif;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: linear-gradient(-45deg, var(--bg-gradient-1), var(--bg-gradient-2), var(--bg-gradient-3), var(--bg-gradient-4));
+      background-size: 400% 400%;
+      animation: gradientBG 12s ease infinite;
+      background-image: radial-gradient(circle, rgba(255,255,255,0.25) 15%, transparent 15%), 
+                        url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='10' y='30' font-size='22'%3E🚭%3C/text%3E%3Ctext x='70' y='85' font-size='22'%3E📜%3C/text%3E%3Ctext x='80' y='30' font-size='20'%3E🌸%3C/text%3E%3Ctext x='15' y='95' font-size='20'%3E⭐%3C/text%3E%3Ctext x='45' y='60' font-size='18'%3E🛞%3C/text%3E%3C/svg%3E");
+      color: #2d3436;
+      overflow: hidden;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    header {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 10px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.1);
+      z-index: 100;
+      border-bottom: 4px solid #ffb6c1;
+    }
+
+    .brand-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #fff0f5;
+      padding: 6px 14px;
+      border-radius: 20px;
+      border: 3px solid #ffb6c1;
+      box-shadow: var(--btn-shadow);
+    }
+
+    .brand-badge h1 {
+      font-family: 'Paytone One', sans-serif;
+      font-size: 1rem;
+      color: #ff3366;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    .timer-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #ffffff;
+      padding: 6px 14px;
+      border-radius: 22px;
+      border: 3px solid var(--primary-pink);
+      box-shadow: var(--btn-shadow);
+    }
+
+    .timer-display {
+      font-family: 'Paytone One', sans-serif;
+      font-size: 1.2rem;
+      color: #ff3366;
+      min-width: 55px;
+      text-align: center;
+    }
+
+    .btn-gamified {
+      font-family: 'Paytone One', 'Fredoka', sans-serif;
+      background: var(--primary-pink);
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 16px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      box-shadow: var(--btn-shadow);
+      transition: all 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      letter-spacing: 0.5px;
+    }
+
+    .btn-gamified:hover {
+      transform: translateY(-3px);
+      background: #ff4757;
+    }
+
+    .btn-gamified:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0px rgba(0,0,0,0.15);
+    }
+
+    .btn-submit-main {
+      background: var(--accent-green);
+    }
+
+    .progress-box {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      width: 150px;
+    }
+
+    .progress-bar-bg {
+      flex: 1;
+      height: 14px;
+      background: #e2e8f0;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 2px solid #fff;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #fdcb6e, #00d26a);
+      transition: width 0.4s ease;
+    }
+
+    .progress-text {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #475569;
+    }
+
+    .passage-tabs {
+      display: flex;
+      gap: 6px;
+      background: rgba(255,255,255,0.9);
+      padding: 5px;
+      border-radius: 16px;
+    }
+
+    .tab-btn {
+      font-family: 'Fredoka', sans-serif;
+      padding: 6px 14px;
+      border: none;
+      border-radius: 12px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      background: transparent;
+      color: #64748b;
+      transition: all 0.2s;
+    }
+
+    .tab-btn.active {
+      background: #ffffff;
+      color: #ff3366;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+    }
+
+    .main-container {
+      flex: 1;
+      display: flex;
+      gap: 18px;
+      padding: 18px;
+      overflow: hidden;
+    }
+
+    .split-pane {
+      flex: 1;
+      background: var(--card-bg);
+      border-radius: 24px;
+      padding: 22px;
+      overflow-y: auto;
+      box-shadow: var(--card-shadow);
+      border: 4px solid rgba(255, 255, 255, 0.95);
+      position: relative;
+    }
+
+    .passage-title {
+      font-family: 'Paytone One', cursive, sans-serif;
+      font-size: 1.25rem;
+      color: #ff3366;
+      margin-bottom: 14px;
+      padding-bottom: 8px;
+      border-bottom: 4px dashed #ffb6c1;
+      letter-spacing: 0.5px;
+    }
+
+    .paragraph-block {
+      margin-bottom: 18px;
+      background: #ffffff;
+      padding: 16px;
+      border-radius: 18px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+      border-left: 5px solid var(--primary-pink);
+    }
+
+    .paragraph-text {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #1e293b;
+      margin-bottom: 10px;
+    }
+
+    .translate-btn {
+      font-family: 'Fredoka', sans-serif;
+      background: #f0f3ff;
+      color: #4f46e5;
+      border: 2px solid #c7d2fe;
+      padding: 6px 12px;
+      border-radius: 10px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .translate-btn:hover {
+      background: #e0e7ff;
+    }
+
+    .translation-content {
+      display: none;
+      margin-top: 10px;
+      padding: 12px;
+      background: #f8fafc;
+      border-radius: 12px;
+      border-left: 4px solid #6366f1;
+      font-size: 0.95rem;
+      color: #334155;
+      line-height: 1.7;
+    }
+
+    .translation-content.show {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .evidence-highlight {
+      background-color: #fef08a !important;
+      color: #000 !important;
+      box-shadow: 0 0 12px #fde047;
+      border-radius: 6px;
+      padding: 2px 6px;
+      animation: pulseGlow 1.2s infinite alternate;
+    }
+
+    @keyframes pulseGlow {
+      from { transform: scale(1); }
+      to { transform: scale(1.03); }
+    }
+
+    .glossary-box {
+      margin-top: 25px;
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 18px;
+      border: 3px solid #f1f5f9;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    }
+
+    .glossary-title {
+      font-family: 'Paytone One', sans-serif;
+      font-size: 1.05rem;
+      color: #ff3366;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .glossary-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    .glossary-table th, .glossary-table td {
+      padding: 10px;
+      border-bottom: 1px solid #edf2f7;
+      text-align: left;
+    }
+
+    .glossary-table th {
+      background: #fff0f5;
+      color: #ff3366;
+      font-family: 'Paytone One', sans-serif;
+      font-size: 0.82rem;
+    }
+
+    .question-card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.04);
+      border: 3px solid #f1f5f9;
+    }
+
+    .question-number {
+      display: inline-block;
+      font-family: 'Paytone One', sans-serif;
+      background: #fff0f5;
+      color: #ff3366;
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 0.85rem;
+      margin-bottom: 10px;
+      border: 2px solid #ffb6c1;
+    }
+
+    .question-text {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #0f172a;
+      margin-bottom: 14px;
+      line-height: 1.6;
+    }
+
+    .options-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .option-btn {
+      font-family: 'Fredoka', sans-serif;
+      background: #f8fafc;
+      border: 3px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 12px 16px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      color: #334155;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 3px 0px #e2e8f0;
+    }
+
+    .option-btn:hover {
+      background: #f1f5f9;
+      transform: translateX(4px);
+    }
+
+    .option-btn.correct {
+      background: #dcfce7 !important;
+      border-color: var(--accent-green) !important;
+      color: #15803d !important;
+      font-weight: 700;
+      box-shadow: 0 3px 0px var(--accent-green);
+    }
+
+    .option-btn.wrong {
+      background: #ffe4e6 !important;
+      border-color: var(--accent-red) !important;
+      color: #b91c1c !important;
+      box-shadow: 0 3px 0px var(--accent-red);
+      animation: shake 0.4s ease;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-6px); }
+      75% { transform: translateX(6px); }
+    }
+
+    .explanation-box {
+      display: none;
+      margin-top: 14px;
+      padding: 16px;
+      border-radius: 16px;
+      background: #f8fafc;
+      border: 3px dashed #cbd5e1;
+      font-size: 0.92rem;
+      line-height: 1.7;
+    }
+
+    .explanation-box.show {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .exp-item {
+      margin-bottom: 8px;
+    }
+
+    .exp-title {
+      font-family: 'Paytone One', sans-serif;
+      font-size: 0.88rem;
+      color: #0f172a;
+    }
+
+    .locate-btn {
+      font-family: 'Fredoka', sans-serif;
+      background: #fef08a;
+      color: #854d0e;
+      border: 2px solid #fde047;
+      padding: 6px 12px;
+      border-radius: 10px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+
+    .locate-btn:hover {
+      background: #fde047;
+      transform: scale(1.03);
+    }
+
+    /* Rendered Sign Cards */
+    .sign-card-box {
+      background: #ffffff;
+      border: 3px solid #000000;
+      border-radius: 12px;
+      padding: 14px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+      width: 290px;
+      margin: 0 auto 16px auto;
+      font-family: Arial, sans-serif;
+    }
+
+    .sign-card-box .header-red {
+      background: #dc2626;
+      color: #ffffff;
+      font-size: 1rem;
+      font-weight: 900;
+      padding: 4px 8px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+    }
+
+    .sign-card-box .header-blue {
+      background: #2563eb;
+      color: #ffffff;
+      font-size: 1rem;
+      font-weight: 900;
+      padding: 4px 8px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+    }
+
+    .sign-card-box .body-text {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: #000000;
+      line-height: 1.4;
+    }
+
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(5px);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-overlay.show {
+      display: flex;
+    }
+
+    .modal-card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 28px;
+      width: 90%;
+      max-width: 460px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+      border: 5px solid var(--primary-pink);
+    }
+
+    .modal-score {
+      font-family: 'Paytone One', sans-serif;
+      font-size: 2.8rem;
+      color: #ff3366;
+      margin: 12px 0;
+    }
+
+    .modal-comment {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #334155;
+      margin-bottom: 18px;
+    }
+
+    #confetti-canvas {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    @media (max-width: 850px) {
+      .main-container {
+        flex-direction: column;
+        overflow-y: auto;
+      }
+      body { overflow: auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="confetti-canvas"></canvas>
+
+  <header>
+    <div class="brand-badge">
+      <span>👩‍🏫</span>
+      <h1>Ms Lê Hằng English</h1>
+    </div>
+
+    <!-- 3 Isolated Tabs for Questions 15-18, 25-29, 30-34 -->
+    <div class="passage-tabs">
+      <button class="tab-btn active" onclick="switchPassage(1)">Biển báo & Thông báo (Q15-18) 🚭</button>
+      <button class="tab-btn" onclick="switchPassage(2)">History & Accounts (Q25-29) 📜</button>
+      <button class="tab-btn" onclick="switchPassage(3)">The Wheel Invention (Q30-34) 🛞</button>
+    </div>
+
+    <div class="timer-container">
+      <button class="btn-gamified" id="timer-toggle-btn" onclick="toggleTimer()">⏱️ BẮT ĐẦU TÍNH GIỜ</button>
+      <span class="timer-display" id="timer-display">20:00</span>
+    </div>
+
+    <div class="progress-box">
+      <div class="progress-bar-bg">
+        <div class="progress-bar-fill" id="progress-fill"></div>
+      </div>
+      <span class="progress-text" id="progress-text">0%</span>
+    </div>
+
+    <button class="btn-gamified btn-submit-main" onclick="submitTest()">🏆 NỘP BÀI</button>
+  </header>
+
+  <main class="main-container">
+    <div class="split-pane" id="reading-pane"></div>
+    <div class="split-pane" id="exercise-pane"></div>
+  </main>
+
+  <div class="modal-overlay" id="result-modal">
+    <div class="modal-card">
+      <h2 style="font-family:'Paytone One', sans-serif; color:#ff3366;">🎉 KẾT QUẢ BÀI THI 🎉</h2>
+      <div class="modal-score" id="score-text">0 / 0</div>
+      <div class="modal-comment" id="comment-text">Cố lên nhé!</div>
+      <button class="btn-gamified" onclick="closeModal()">Đóng & Xem Lại</button>
+    </div>
+  </div>
+
+  <script>
+    // Data Structure for Questions 15-18, 25-29, 30-34
+    const passagesData = {
+      1: {
+        title: "Phần 1: Biển báo & Thông báo thực tế (Câu 15 - 18)",
+        paragraphs: [
+          {
+            id: "p1_q15",
+            text: "<h4 style='font-family:Paytone One; color:#ff3366; margin-bottom:6px;'>Biển báo Q15</h4>" +
+                  "<div class='sign-card-box' id='ev_q15'><div class='header-red'>NO SMOKING</div><div class='body-text'>🚭<br><strong>NO SMOKING INSIDE THE BUILDING</strong></div></div>",
+            translation: "Biển báo 15: CẤM HÚT THUỐC LÁ TRONG TÒA NHÀ VÀO BẤT KỲ LÚC NÀO."
+          },
+          {
+            id: "p1_q16",
+            text: "<h4 style='font-family:Paytone One; color:#ff3366; margin-bottom:6px;'>Thông báo Q16</h4>" +
+                  "<div class='sign-card-box' id='ev_q16'><div class='header-blue'>LIVE MUSIC NOTICE</div><div class='body-text'>🎶 🎷<br><strong>The cafe will have live music on Friday nights starting at 7 PM. Enjoy music while you dine.</strong></div></div>",
+            translation: "Thông báo 16: Quán cà phê sẽ có nhạc sống vào các tối Thứ Sáu bắt đầu lúc 7 giờ tối. Thưởng thức âm nhạc trong khi bạn dùng bữa."
+          },
+          {
+            id: "p1_q17",
+            text: "<h4 style='font-family:Paytone One; color:#ff3366; margin-bottom:6px;'>Biển báo Q17</h4>" +
+                  "<div class='sign-card-box' id='ev_q17'><div class='header-red'>NOTICE</div><div class='body-text'>🛗 🚫<br><strong>ELEVATOR OUT OF ORDER</strong></div></div>",
+            translation: "Biển báo 17: THÔNG BÁO: Thang máy đang hỏng / ngưng hoạt động (Out of order)."
+          },
+          {
+            id: "p1_q18",
+            text: "<h4 style='font-family:Paytone One; color:#ff3366; margin-bottom:6px;'>Thông báo Q18</h4>" +
+                  "<div class='sign-card-box' id='ev_q18'><div class='header-blue'>RESTAURANT UPDATE</div><div class='body-text'>🍽️ 📖<br><strong>The restaurant will have a new menu starting next week. Check online for updates and new dishes.</strong></div></div>",
+            translation: "Thông báo 18: Nhà hàng sẽ có thực đơn mới bắt đầu từ tuần sau. Hãy kiểm tra trực tuyến để cập nhật các món ăn mới."
+          }
+        ],
+        glossary: [
+          { word: "Out of order (phr)", type: "Phrase", meaning: "Bị hỏng / Không hoạt động", synonym: "Broken / Out of service" },
+          { word: "Prohibit (v)", type: "Verb", meaning: "Cấm đoán / Không cho phép", synonym: "Ban / Forbid" },
+          { word: "Dine (v)", type: "Verb", meaning: "Dùng bữa tối / Ăn uống", synonym: "Eat a meal / Have dinner" }
+        ],
+        questions: [
+          {
+            id: "q15",
+            type: "mcq",
+            question: "Question 15: What does the sign say?",
+            options: [
+              "A. Smoking is allowed inside the building whenever you want.",
+              "B. Do not smoke inside the building at any time.",
+              "C. Smoking is only allowed in some places inside the building.",
+              "D. Smoking is encouraged inside the building."
+            ],
+            answer: "B. Do not smoke inside the building at any time.",
+            explanationType: "vocab_grammar",
+            explanation: {
+              translation: "Biển báo 'NO SMOKING' có ý nghĩa gì?",
+              optionsAnalysis: [
+                "A. Được phép hút thuốc bất cứ khi nào bạn muốn.",
+                "B. Không hút thuốc bên trong tòa nhà vào bất kỳ lúc nào.",
+                "C. Chỉ được hút thuốc ở một số nơi.",
+                "D. Khuyến khích hút thuốc."
+              ],
+              whyCorrect: "Biển cấm 'NO SMOKING' có nghĩa là tuyệt đối không được hút thuốc = Do not smoke inside the building at any time.",
+              whyWrong: "A, C, D đều trái ngược hoàn toàn với ý nghĩa biển cấm hút thuốc.",
+              evidenceId: "ev_q15"
+            }
+          },
+          {
+            id: "q16",
+            type: "mcq",
+            question: "Question 16: What does the notice say?",
+            options: [
+              "A. Live music will be played on Saturday nights.",
+              "B. The cafe will have live music on Friday nights starting at 7 PM.",
+              "C. Music will be played only in the morning.",
+              "D. The cafe will not have live music this month."
+            ],
+            answer: "B. The cafe will have live music on Friday nights starting at 7 PM.",
+            explanationType: "vocab_grammar",
+            explanation: {
+              translation: "Thông báo nói điều gì?",
+              optionsAnalysis: [
+                "A. Nhạc sống sẽ chơi vào tối thứ Bảy. (Sai thứ)",
+                "B. Quán cà phê có nhạc sống vào tối thứ Sáu từ 7h tối. (Đúng)",
+                "C. Nhạc chỉ phát vào buổi sáng. (Sai)",
+                "D. Quán không có nhạc sống tháng này. (Sai)"
+              ],
+              whyCorrect: "Trích dẫn nguyên văn thông báo: 'The cafe will have live music on Friday nights starting at 7 PM.'",
+              whyWrong: "A sai thứ; C và D bịa ra thông tin sai lệch.",
+              evidenceId: "ev_q16"
+            }
+          },
+          {
+            id: "q17",
+            type: "mcq",
+            question: "Question 17: What does the sign say?",
+            options: [
+              "A. The elevator is working well and you can use it.",
+              "B. The elevator is not working and you cannot use it.",
+              "C. The elevator is being repaired and will work again soon.",
+              "D. The elevator is for special use only and not for everyone."
+            ],
+            answer: "B. The elevator is not working and you cannot use it.",
+            explanationType: "vocab_grammar",
+            explanation: {
+              translation: "Biển báo 'ELEVATOR OUT OF ORDER' nói điều gì?",
+              optionsAnalysis: [
+                "A. Thang máy đang hoạt động tốt.",
+                "B. Thang máy không hoạt động và bạn không thể sử dụng.",
+                "C. Thang máy đang được sửa và sẽ xong sớm.",
+                "D. Thang máy chỉ dành cho mục đích đặc biệt."
+              ],
+              whyCorrect: "Cụm từ 'Out of order' nghĩa là bị hỏng, không hoạt động = The elevator is not working.",
+              whyWrong: "A sai nghĩa; C và D tự suy đoán thông tin không có.",
+              evidenceId: "ev_q17"
+            }
+          },
+          {
+            id: "q18",
+            type: "mcq",
+            question: "Question 18: What does the notice say?",
+            options: [
+              "A. The restaurant has a new menu next week.",
+              "B. Check online for the new menu next week.",
+              "C. The new menu starts this month, check online for updated new dishes.",
+              "D. The restaurant will stay the same."
+            ],
+            answer: "A. The restaurant has a new menu next week.",
+            explanationType: "vocab_grammar",
+            explanation: {
+              translation: "Thông báo nói điều gì?",
+              optionsAnalysis: [
+                "A. Nhà hàng có thực đơn mới vào tuần tới.",
+                "B. Kiểm tra trực tuyến thực đơn mới tuần tới.",
+                "C. Thực đơn mới bắt đầu tháng này.",
+                "D. Nhà hàng vẫn như cũ."
+              ],
+              whyCorrect: "Thông báo ghi rõ: 'The restaurant will have a new menu starting next week.'",
+              whyWrong: "B sai trọng tâm câu; C nhầm thành 'this month'; D nói ngược.",
+              evidenceId: "ev_q18"
+            }
+          }
+        ]
+      },
+      2: {
+        title: "Phần 2: Bài đọc Lịch sử & Lưu trữ thông tin (Câu 25 - 29)",
+        paragraphs: [
+          {
+            id: "p2_passage",
+            text: "<p class='paragraph-text'>" +
+                  "If we were asked exactly what we were doing a year ago, we would probably have to say that we could not remember. But if we kept a book and wrote in it an account of what we did each day, we should be able to give an answer. In a way, this is similar to history.<br><br>" +
+                  "Most people are proud to tell you what their ancestors did in the past. We may call this <span id='ev_q25' class='evidence-target'>remembered history</span>. But many things have been forgotten because we do not have any written <span id='ev_q26' class='evidence-target'>account</span> of them. Sometimes people kept a record of the most important happenings in their country, but often it was destroyed by fire or in a war. Sometimes there was never any written record because the people of that time and place did not know how to write. For example, we know a lot about the people who lived in China about 2,500 years ago because they could write and leave written records for those who lived after them. But <span id='ev_q27' class='evidence-target'>we know little about the people who lived just 200 years ago in central Africa, because they had no writing system</span>.<br><br>" +
+                  "Sometimes, even if people cannot write, <span id='ev_q28' class='evidence-target'>they</span> may know something of the past. They have heard about it from older people, and often songs, dances, and stories have been made about the most important past events, and these have been sung about, acted and told for generations." +
+                  "</p>",
+            translation: "Nếu chúng ta được hỏi chính xác mình đã làm gì một năm trước, có thể chúng ta sẽ nói không nhớ. Nhưng nếu ta ghi lại những việc làm mỗi ngày vào một cuốn sổ, ta sẽ có câu trả lời. Theo một cách nào đó, điều này tương tự như lịch sử.<br><br>Hầu hết mọi người đều tự hào kể về những gì tổ tiên họ đã làm trong quá khứ. Chúng ta có thể gọi đây là 'lịch sử ghi nhớ/truyền miệng'. Nhưng nhiều thứ đã bị lãng quên vì ta không có bất kỳ ghi chép viết tay nào. Đôi khi con người ghi lại các sự kiện quan trọng, nhưng chúng lại bị hỏa hoạn hoặc chiến tranh phá hủy. Đôi khi lại không có ghi chép nào vì con người thời đó không biết viết. Ví dụ, ta biết rất nhiều về người Trung Quốc sống cách đây 2.500 năm vì họ biết viết và để lại ghi chép. Nhưng ta biết rất ít về những người sống cách đây 200 năm ở trung tâm châu Phi vì họ không có hệ thống chữ viết.<br><br>Đôi khi, ngay cả khi không biết viết, họ vẫn có thể biết về quá khứ qua lời kể của người lớn tuổi, qua bài hát, điệu múa và những câu chuyện được lưu truyền qua nhiều thế hệ."
+          }
+        ],
+        glossary: [
+          { word: "Account (n)", type: "Noun", meaning: "Bản ghi chép / Báo cáo", synonym: "Report / Record / Narrative" },
+          { word: "Ancestor (n)", type: "Noun", meaning: "Tổ tiên / Ông bà", synonym: "Forefather / Predecessor" },
+          { word: "Generation (n)", type: "Noun", meaning: "Thế hệ", synonym: "Age group / Era" }
+        ],
+        questions: [
+          {
+            id: "q25",
+            type: "mcq",
+            question: "Question 25: “Remembered history” in the passage may refer to ________.",
+            options: [
+              "A. history based on a person’s imagination",
+              "B. record of important happenings destroyed by fire or in a war",
+              "C. stories of important happenings passed down to younger generations",
+              "D. songs, dances, and stories about all events in our everyday lives"
+            ],
+            answer: "C. stories of important happenings passed down to younger generations",
+            explanationType: "reading",
+            explanation: {
+              answer: "C. stories of important happenings passed down to younger generations",
+              questionContext: "Cụm 'Remembered history' trong bài ám chỉ điều gì?",
+              passageQuote: "Most people are proud to tell you what their ancestors did in the past. We may call this remembered history.",
+              quoteTranslation: "Mọi người tự hào kể lại những gì tổ tiên họ đã làm -> đó là những câu chuyện được truyền lại cho thế hệ sau.",
+              synonyms: "tell what ancestors did = stories passed down to younger generations",
+              evidenceId: "ev_q25"
+            }
+          },
+          {
+            id: "q26",
+            type: "mcq",
+            question: "Question 26: The underlined word “account” in the passage mostly means ________.",
+            options: [
+              "A. amount",
+              "B. report",
+              "C. happening",
+              "D. question"
+            ],
+            answer: "B. report",
+            explanationType: "reading",
+            explanation: {
+              answer: "B. report",
+              questionContext: "Từ gạch chân 'account' đồng nghĩa với từ nào?",
+              passageQuote: "...written account of them...",
+              quoteTranslation: "...bản ghi chép / báo cáo bằng văn bản về họ...",
+              synonyms: "written account = written report / written record",
+              evidenceId: "ev_q26"
+            }
+          },
+          {
+            id: "q27",
+            type: "mcq",
+            question: "Question 27: We know very little about the central Africa 200 years ago because ________.",
+            options: [
+              "A. there was nothing to write down at that time",
+              "B. the people there did not keep a record",
+              "C. the written records were destroyed by a fire",
+              "D. the people there did not have a writing system"
+            ],
+            answer: "D. the people there did not have a writing system",
+            explanationType: "reading",
+            explanation: {
+              answer: "D. the people there did not have a writing system",
+              questionContext: "Tại sao chúng ta biết rất ít về trung tâm châu Phi 200 năm trước?",
+              passageQuote: "But we know little about the people who lived just 200 years ago in central Africa, because they had no writing system.",
+              quoteTranslation: "...vì họ không có hệ thống chữ viết (writing system).",
+              synonyms: "had no writing system = did not have a writing system",
+              evidenceId: "ev_q27"
+            }
+          },
+          {
+            id: "q28",
+            type: "mcq",
+            question: "Question 28: The underlined word “they” in the passage refers to ________.",
+            options: [
+              "A. people who cannot write",
+              "B. older people",
+              "C. songs, dances, and stories",
+              "D. the most important happenings"
+            ],
+            answer: "A. people who cannot write",
+            explanationType: "reading",
+            explanation: {
+              answer: "A. people who cannot write",
+              questionContext: "Từ gạch chân 'they' quy chiếu đến danh từ nào đứng trước?",
+              passageQuote: "Sometimes, even if people cannot write, they may know something of the past.",
+              quoteTranslation: "Đôi khi, ngay cả khi mọi người không thể viết, họ (những người không thể viết) vẫn có thể biết về quá khứ.",
+              synonyms: "they = people who cannot write",
+              evidenceId: "ev_q28"
+            }
+          },
+          {
+            id: "q29",
+            type: "mcq",
+            question: "Question 29: We can infer from the passage that we could know more about our past if our ancestors had ________.",
+            options: [
+              "A. kept written records of past events",
+              "B. not burnt their written records in wars",
+              "C. told more stories",
+              "D. made more songs and dances"
+            ],
+            answer: "A. kept written records of past events",
+            explanationType: "reading",
+            explanation: {
+              answer: "A. kept written records of past events",
+              questionContext: "Có thể suy ra rằng ta biết nhiều hơn về quá khứ nếu tổ tiên làm điều gì?",
+              passageQuote: "...they could write and leave written records for those who lived after them.",
+              quoteTranslation: "Việc ghi chép lại tài liệu văn bản giúp thế hệ sau biết rõ thông tin lịch sử.",
+              synonyms: "leave written records = kept written records of past events",
+              evidenceId: "ev_q25"
+            }
+          }
+        ]
+      },
+      3: {
+        title: "Phần 3: Bài đọc điền từ - Bánh xe và Phát minh (Câu 30 - 34)",
+        paragraphs: [
+          {
+            id: "p3_text",
+            text: "<p class='paragraph-text'>" +
+                  "<strong>THE WHEEL</strong><br>" +
+                  "Before the wheel was invented thousands of years ago, the only way to get from one place to another was <span id='ev_q30' class='evidence-target'>(30) ________</span> our legs or riding animals, such as horses, camels, or donkeys. Wheels today are on all sorts of vehicles from cars to planes, from bikes to skateboards. We believe that the first wheels were invented to help move very heavy <span id='ev_q31' class='evidence-target'>(31) ________</span>. Humans discovered that something heavy was more easily moved by rolling something round. Eventually wheels were <span id='ev_q32' class='evidence-target'>(32) ________</span> for carts and wagons.<br><br>" +
+                  "The wheel is probably the most significant mechanical invention of all time. The first wheels are thought to have appeared in Egypt on chariots around 2000 BC. Just imagine the world today <span id='ev_q33' class='evidence-target'>(33) ________</span> the wheel, not only in transportation but also in technology. Important applications of the wheel include the water wheel and the spinning wheel. More <span id='ev_q34' class='evidence-target'>(34) ________</span> applications include the jet engine and the turbine." +
+                  "</p>",
+            translation: "BÁNH XE: Trước khi bánh xe được phát minh ra hàng ngàn năm trước, cách duy nhất để di chuyển từ nơi này đến nơi khác là SỬ DỤNG (30-using) đôi chân hoặc cưỡi động vật. Ngày nay bánh xe có mặt trên mọi loại phương tiện. Người ta tin rằng những chiếc bánh xe đầu tiên được tạo ra để di chuyển các VẬT THỂ (31-objects) rất nặng. Sau đó bánh xe đã được PHÁT TRIỂN (32-developed) cho xe kéo và xe bò. Hãy tưởng tượng thế giới ngày nay NẾU KHÔNG CÓ (33-without) bánh xe. Những ứng dụng HIỆN ĐẠI (34-modern) hơn bao gồm động cơ phản lực và tua-bin."
+          }
+        ],
+        glossary: [
+          { word: "Invention (n)", type: "Noun", meaning: "Sự phát minh / Phát minh", synonym: "Creation / Innovation" },
+          { word: "Chariot (n)", type: "Noun", meaning: "Xe ngựa kéo thời cổ đại", synonym: "Carriage / Cart" },
+          { word: "Application (n)", type: "Noun", meaning: "Ứng dụng thực tế", synonym: "Use / Implementation" }
+        ],
+        questions: [
+          {
+            id: "q30",
+            type: "mcq",
+            question: "Question 30: Choose the correct verb form for blank (30):",
+            options: ["A. walking", "B. going", "C. using", "D. applying"],
+            answer: "C. using",
+            explanationType: "reading",
+            explanation: {
+              answer: "C. using",
+              questionContext: "Cấu trúc song song: 'was USING our legs OR RIDING animals'.",
+              passageQuote: "...the only way to get from one place to another was (30) using our legs or riding animals...",
+              quoteTranslation: "...cách duy nhất là sử dụng đôi chân của mình hoặc cưỡi động vật...",
+              synonyms: "using legs = đi bằng chân",
+              evidenceId: "ev_q30"
+            }
+          },
+          {
+            id: "q31",
+            type: "mcq",
+            question: "Question 31: Choose the correct noun for blank (31):",
+            options: ["A. objects", "B. machines", "C. vehicles", "D. boxes"],
+            answer: "A. objects",
+            explanationType: "reading",
+            explanation: {
+              answer: "A. objects",
+              questionContext: "Cụm danh từ: move very heavy OBJECTS (di chuyển vật thể nặng).",
+              passageQuote: "...invented to help move very heavy (31) objects.",
+              quoteTranslation: "...được phát minh để giúp di chuyển các vật thể rất nặng.",
+              synonyms: "heavy objects = heavy items / something heavy",
+              evidenceId: "ev_q31"
+            }
+          },
+          {
+            id: "q32",
+            type: "mcq",
+            question: "Question 32: Choose the correct verb for blank (32):",
+            options: ["A. advanced", "B. developed", "C. explored", "D. decided"],
+            answer: "B. developed",
+            explanationType: "reading",
+            explanation: {
+              answer: "B. developed",
+              questionContext: "Bánh xe được phát triển dành cho xe cẩu / xe bò: wheels were DEVELOPED for carts.",
+              passageQuote: "Eventually wheels were (32) developed for carts and wagons.",
+              quoteTranslation: "Cuối cùng bánh xe đã được phát triển để dùng cho xe kéo và xe bò.",
+              synonyms: "developed = created and improved for a purpose",
+              evidenceId: "ev_q32"
+            }
+          },
+          {
+            id: "q33",
+            type: "mcq",
+            question: "Question 33: Choose the correct preposition for blank (33):",
+            options: ["A. for", "B. with", "C. without", "D. by"],
+            answer: "C. without",
+            explanationType: "reading",
+            explanation: {
+              answer: "C. without",
+              questionContext: "Giả định không có bánh xe: 'imagine the world today WITHOUT the wheel'.",
+              passageQuote: "Just imagine the world today (33) without the wheel...",
+              quoteTranslation: "Hãy thử tưởng tượng thế giới ngày nay nếu không có bánh xe...",
+              synonyms: "without = thiếu đi / không có",
+              evidenceId: "ev_q33"
+            }
+          },
+          {
+            id: "q34",
+            type: "mcq",
+            question: "Question 34: Choose the correct adjective for blank (34):",
+            options: ["A. practical", "B. early", "C. interesting", "D. modern"],
+            answer: "D. modern",
+            explanationType: "reading",
+            explanation: {
+              answer: "D. modern",
+              questionContext: "Đối lập với cối xay nước thời xưa là các ứng dụng hiện đại: MORE MODERN applications.",
+              passageQuote: "More (34) modern applications include the jet engine and the turbine.",
+              quoteTranslation: "Các ứng dụng hiện đại hơn bao gồm động cơ phản lực và tua-bin.",
+              synonyms: "modern applications = ứng dụng thời nay / tân tiến",
+              evidenceId: "ev_q34"
+            }
+          }
+        ]
+      }
+    };
+
+    let currentPassageId = 1;
+    let userAnswers = {};
+    let timerSeconds = 1200;
+    let timerInterval = null;
+    let isTimerRunning = false;
+    let isTestLocked = false;
+
+    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+    function playCorrectSound() {
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(523.25, audioCtx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(880, audioCtx.currentTime + 0.3);
+      gain.gain.setValueAtTime(0.3, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.3);
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start();
+      osc.stop(audioCtx.currentTime + 0.3);
+    }
+
+    function playWrongSound() {
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = 'sawtooth';
+      osc.frequency.setValueAtTime(220, audioCtx.currentTime);
+      osc.frequency.linearRampToValueAtTime(110, audioCtx.currentTime + 0.35);
+      gain.gain.setValueAtTime(0.3, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.35);
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start();
+      osc.stop(audioCtx.currentTime + 0.35);
+    }
+
+    function triggerConfetti() {
+      const canvas = document.getElementById('confetti-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      
+      let particles = [];
+      const colors = ['#ff6b8b', '#00d26a', '#fdcb6e', '#00c9a7', '#a855f7', '#ff4757'];
+      
+      for (let i = 0; i < 50; i++) {
+        particles.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height - canvas.height,
+          r: Math.random() * 6 + 4,
+          d: Math.random() * 8 + 4,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          tilt: Math.floor(Math.random() * 10) - 10,
+          tiltAngleIncremental: Math.random() * 0.07 + 0.05,
+          tiltAngle: 0
+        });
+      }
+
+      let step = 0;
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach((p) => {
+          ctx.beginPath();
+          ctx.lineWidth = p.r;
+          ctx.strokeStyle = p.color;
+          ctx.moveTo(p.x + p.tilt + p.r / 2, p.y);
+          ctx.lineTo(p.x + p.tilt, p.y + p.tilt + p.r / 2);
+          ctx.stroke();
+        });
+        update();
+        step++;
+        if (step < 90) requestAnimationFrame(draw);
+        else ctx.clearRect(0, 0, canvas.width, canvas.height);
+      }
+
+      function update() {
+        particles.forEach((p) => {
+          p.tiltAngle += p.tiltAngleIncremental;
+          p.y += (Math.cos(p.d) + 3 + p.r / 2) / 2;
+          p.tilt = Math.sin(p.tiltAngle) * 15;
+        });
+      }
+      draw();
+    }
+
+    function shuffleArray(array) {
+      let arr = [...array];
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      return arr;
+    }
+
+    function toggleTimer() {
+      const btn = document.getElementById('timer-toggle-btn');
+      if (isTimerRunning) {
+        clearInterval(timerInterval);
+        isTimerRunning = false;
+        btn.innerText = "▶️ TIẾP TỤC TÍNH GIỜ";
+      } else {
+        isTimerRunning = true;
+        btn.innerText = "⏸️ TẠM DỪNG TÍNH GIỜ";
+        timerInterval = setInterval(() => {
+          if (timerSeconds > 0) {
+            timerSeconds--;
+            updateTimerDisplay();
+          } else {
+            clearInterval(timerInterval);
+            isTimerRunning = false;
+            isTestLocked = true;
+            alert("⏰ Đã hết giờ làm bài, vui lòng nộp bài nhé!");
+            disableAllInputs();
+          }
+        }, 1000);
+      }
+    }
+
+    function updateTimerDisplay() {
+      const mins = Math.floor(timerSeconds / 60);
+      const secs = timerSeconds % 60;
+      document.getElementById('timer-display').innerText = 
+        `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+    }
+
+    function disableAllInputs() {
+      document.querySelectorAll('button, select, input').forEach(el => {
+        if (!el.classList.contains('btn-submit-main') && el.id !== 'timer-toggle-btn') {
+          el.disabled = true;
+        }
+      });
+    }
+
+    function renderLeftPane(passageId) {
+      const pData = passagesData[passageId];
+      const readingPane = document.getElementById('reading-pane');
+      let html = `<div class="passage-title">${pData.title}</div>`;
+
+      pData.paragraphs.forEach((p) => {
+        html += `
+          <div class="paragraph-block">
+            <div class="paragraph-text">${p.text}</div>
+            <button class="translate-btn" onclick="toggleTranslation('${p.id}')">🌟 BẢN DỊCH ĐẦY ĐỦ</button>
+            <div class="translation-content" id="trans-${p.id}">${p.translation}</div>
+          </div>
+        `;
+      });
+
+      if (pData.glossary && pData.glossary.length > 0) {
+        html += `
+          <div class="glossary-box">
+            <div class="glossary-title">📚 Bảng Từ Vựng Academic & Từ Đồng Nghĩa</div>
+            <table class="glossary-table">
+              <thead>
+                <tr>
+                  <th>Từ vựng</th>
+                  <th>Loại từ</th>
+                  <th>Nghĩa tiếng Việt</th>
+                  <th>Từ đồng nghĩa</th>
+                </tr>
+              </thead>
+              <tbody>
+        `;
+        pData.glossary.forEach(g => {
+          html += `
+            <tr>
+              <td><strong>${g.word}</strong></td>
+              <td><em>${g.type}</em></td>
+              <td>${g.meaning}</td>
+              <td><code>${g.synonym}</code></td>
+            </tr>
+          `;
+        });
+        html += `</tbody></table></div>`;
+      }
+
+      readingPane.innerHTML = html;
+    }
+
+    function renderRightPane(passageId) {
+      const pData = passagesData[passageId];
+      const exercisePane = document.getElementById('exercise-pane');
+      let html = "";
+
+      pData.questions.forEach((q, idx) => {
+        html += `<div class="question-card" id="card-${q.id}">`;
+        html += `<span class="question-number">Câu ${idx + 1}</span>`;
+
+        html += `<div class="question-text">${q.question}</div>`;
+
+        if (q.type === 'mcq') {
+          const shuffledOpts = shuffleArray(q.options);
+          html += `<div class="options-grid">`;
+          shuffledOpts.forEach((opt) => {
+            html += `
+              <button class="option-btn" id="opt-${q.id}-${cleanStr(opt)}" onclick="checkMCQ('${q.id}', '${escapeQuotes(opt)}')">
+                <span>${opt}</span>
+              </button>
+            `;
+          });
+          html += `</div>`;
+        }
+
+        html += `<div class="explanation-box" id="exp-${q.id}">`;
+        if (q.explanationType === 'vocab_grammar') {
+          html += `
+            <div class="exp-item"><span class="exp-title">1. Dịch câu hỏi / biển báo:</span> ${q.explanation.translation}</div>
+            <div class="exp-item"><span class="exp-title">2. Phân tích các đáp án:</span>
+              <ul style="margin-left:20px; margin-top:4px; list-style-type:circle;">
+                ${q.explanation.optionsAnalysis.map(optStr => `<li>${optStr}</li>`).join('')}
+              </ul>
+            </div>
+            <div class="exp-item" style="margin-top:6px;"><span class="exp-title">3. Tại sao chọn đáp án đúng?</span> ${q.explanation.whyCorrect}</div>
+            <div class="exp-item"><span class="exp-title">4. Tại sao các đáp án còn lại SAI?</span> ${q.explanation.whyWrong}</div>
+            ${q.explanation.evidenceId ? `<button class="locate-btn" onclick="locateEvidence('${q.explanation.evidenceId}')">📍 Vị trí dẫn chứng trong bài</button>` : ''}
+          `;
+        } else if (q.explanationType === 'reading') {
+          html += `
+            <div class="exp-item"><span class="exp-title">(1) ĐÁP ÁN:</span> <strong style="color: var(--accent-green);">${q.explanation.answer}</strong></div>
+            <div class="exp-item"><span class="exp-title">(2) ĐOẠN CHỨA ĐÁP ÁN:</span> "${q.explanation.passageQuote}"</div>
+            <div class="exp-item"><span class="exp-title">(3) DỊCH NGHĨA:</span> ${q.explanation.quoteTranslation}</div>
+            <div class="exp-item"><span class="exp-title">(4) TỪ ĐỒNG NGHĨA / PHÂN TÍCH:</span> <code>${q.explanation.synonyms}</code></div>
+            <button class="locate-btn" onclick="locateEvidence('${q.explanation.evidenceId}')">📍 Vị trí dẫn chứng trong bài</button>
+          `;
+        }
+        html += `</div></div>`;
+      });
+
+      exercisePane.innerHTML = html;
+    }
+
+    function checkMCQ(qId, selectedOpt) {
+      if (isTestLocked) return;
+      const q = findQuestion(qId);
+      const isCorrect = selectedOpt === q.answer;
+      userAnswers[qId] = isCorrect;
+
+      q.options.forEach(opt => {
+        const btn = document.getElementById(`opt-${qId}-${cleanStr(opt)}`);
+        if (btn) {
+          btn.disabled = true;
+          if (opt === q.answer) {
+            btn.classList.add('correct');
+          } else if (opt === selectedOpt) {
+            btn.classList.add('wrong');
+          }
+        }
+      });
+
+      handleAnswerResult(qId, isCorrect);
+    }
+
+    function handleAnswerResult(qId, isCorrect) {
+      const expBox = document.getElementById(`exp-${qId}`);
+      if (expBox) expBox.classList.add('show');
+
+      if (isCorrect) {
+        playCorrectSound();
+        triggerConfetti();
+      } else {
+        playWrongSound();
+      }
+
+      updateProgressBar();
+    }
+
+    function locateEvidence(elementId) {
+      const el = document.getElementById(elementId);
+      if (!el) return;
+      el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      el.classList.add('evidence-highlight');
+      setTimeout(() => {
+        el.classList.remove('evidence-highlight');
+      }, 3500);
+    }
+
+    function toggleTranslation(pId) {
+      const el = document.getElementById(`trans-${pId}`);
+      if (el) el.classList.toggle('show');
+    }
+
+    function switchPassage(pNum) {
+      currentPassageId = pNum;
+      document.querySelectorAll('.tab-btn').forEach((btn, idx) => {
+        btn.classList.toggle('active', (idx + 1) === pNum);
+      });
+      renderLeftPane(pNum);
+      renderRightPane(pNum);
+      updateProgressBar();
+    }
+
+    function updateProgressBar() {
+      let totalQuestions = 0;
+      Object.keys(passagesData).forEach(pKey => {
+        totalQuestions += passagesData[pKey].questions.length;
+      });
+
+      const answeredCount = Object.keys(userAnswers).length;
+      const percentage = Math.round((answeredCount / totalQuestions) * 100);
+
+      document.getElementById('progress-fill').style.width = `${percentage}%`;
+      document.getElementById('progress-text').innerText = `${percentage}%`;
+    }
+
+    function submitTest() {
+      let totalQuestions = 0;
+      let correctCount = 0;
+
+      Object.keys(passagesData).forEach(pKey => {
+        passagesData[pKey].questions.forEach(q => {
+          totalQuestions++;
+          if (userAnswers[q.id] === true) {
+            correctCount++;
+          }
+        });
+      });
+
+      const scoreText = `${correctCount} / ${totalQuestions}`;
+      document.getElementById('score-text').innerText = scoreText;
+
+      let comment = "Cố lên nhé! Hãy đọc lại các phần giải thích chi tiết để nắm chắc kiến thức!";
+      const ratio = correctCount / totalQuestions;
+      if (ratio === 1) {
+        comment = "🌟 THIÊN TÀI! Bạn xuất sắc đạt 100% điểm số!";
+      } else if (ratio >= 0.7) {
+        comment = "🎉 LÀM TỐT LẮM! Kỹ năng làm bài của bạn rất ấn tượng!";
+      }
+
+      document.getElementById('comment-text').innerText = comment;
+      document.getElementById('result-modal').classList.add('show');
+      triggerConfetti();
+    }
+
+    function closeModal() {
+      document.getElementById('result-modal').classList.remove('show');
+    }
+
+    function findQuestion(qId) {
+      for (let pKey in passagesData) {
+        const found = passagesData[pKey].questions.find(q => q.id === qId);
+        if (found) return found;
+      }
+      return null;
+    }
+
+    function cleanStr(str) {
+      return str.replace(/[^a-zA-Z0-9]/g, '');
+    }
+
+    function escapeQuotes(str) {
+      return str.replace(/'/g, "\\'");
+    }
+
+    window.onload = () => {
+      renderLeftPane(1);
+      renderRightPane(1);
+      updateProgressBar();
+    };
+  </script>
+</body>
+</html>
